@@ -3,6 +3,7 @@ dist
 .nitro
 .tmp
 .wrangler
+.data
 *.tsbuildinfo
 .DS_Store
 
