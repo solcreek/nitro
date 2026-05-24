@@ -4,6 +4,7 @@ dist
 .tmp
 .wrangler
 .data
+.vinxi
 *.tsbuildinfo
 .DS_Store
 

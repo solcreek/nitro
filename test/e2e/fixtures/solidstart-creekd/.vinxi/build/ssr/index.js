@@ -1,1 +1,0 @@
-import{ssr as t,ssrHydrationKey as r,escape as a}from"solid-js/web";var o=["<main",'><h1 data-testid="hero">Hello from @solcreek/nitro/creekd</h1><p data-testid="rendered-at">',"</p></main>"];function d(){const e=new Date().toISOString();return t(o,r(),a(e))}export{d as default};

@@ -1,1 +1,0 @@
-import{k as a,n as i,A as l}from"./web-Dijvat6J.js";var o=l("<main><h1 data-testid=hero>Hello from @solcreek/nitro/creekd</h1><p data-testid=rendered-at>");function s(){const t=new Date().toISOString();return(()=>{var e=a(o),r=e.firstChild,n=r.nextSibling;return i(n,t),e})()}export{s as default};
