@@ -39,7 +39,16 @@ export default defineConfig({
       sourcemapPathTransform: (relativeSourcePath, sourcemapPath) => {
         const sourcemapDir = dirname(sourcemapPath);
         const sourcePath = resolve(sourcemapDir, relativeSourcePath);
-        return existsSync(sourcePath) ? sourcePath : relativeSourcePath;
+        if (existsSync(sourcePath)) {
+          // LOCAL MOD (@solcreek/nitro): rewrite the project-rooted prefix
+          // to the upstream-canonical "test/fixture/..." so harness
+          // assertions hardcoded against that path continue to hold when
+          // this fixture is vendored into a different repo layout. See
+          // test/conformance/VENDORED.md.
+          const m = sourcePath.match(/\/(server\/.*)$/);
+          return m ? `test/fixture/${m[1]}` : sourcePath;
+        }
+        return relativeSourcePath;
       },
     },
   },

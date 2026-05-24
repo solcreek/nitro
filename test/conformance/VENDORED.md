@@ -56,9 +56,16 @@ to make the fixture installable as a sibling workspace package alongside
 3. `devDependencies.nitro` switches from `"workspace:*"` (which only works inside
    the nitrojs/nitro monorepo) to our pinned `"3.0.260522-beta"`.
 
-On re-sync, redo these three lines manually. The body of the fixture (config,
-routes, plugins, vendored `@fixture/*` deps) MUST stay byte-identical to
-upstream — that's what makes the harness contract meaningful.
+**`fixture/nitro.config.ts`** has one local patch to `sourcemapPathTransform`:
+when the resolved source path exists, we rewrite the project-rooted prefix to
+the upstream-canonical `test/fixture/...` form. The harness asserts against
+that exact substring (`expect(data.stack).toMatch("test/fixture/server/routes/errors/stack.ts")`)
+and the substring would otherwise be `test/conformance/fixture/...` in our
+layout. Marked LOCAL MOD inline.
+
+On re-sync, redo these four lines manually. The body of the fixture (routes,
+plugins, vendored `@fixture/*` deps) MUST stay byte-identical to upstream —
+that's what makes the harness contract meaningful.
 
 **Do not edit `harness.ts` or anything under `fixture/server/` in place** — keep
 them aligned with upstream so re-syncs stay trivial. If a test must be skipped
