@@ -43,7 +43,24 @@ Then re-run `pnpm test:conformance` to surface any harness API changes
 
 ## Local modifications
 
-None yet. **Do not edit these files in place** — keep them aligned with upstream
-so re-syncs stay trivial. If a test must be skipped or extended for our presets,
-wrap or call the harness from a sibling test file (e.g. `creekd.test.ts`,
-`workers.test.ts`) rather than patching `harness.ts`.
+**`fixture/package.json`** has three differences from upstream — all necessary
+to make the fixture installable as a sibling workspace package alongside
+`@solcreek/nitro`:
+
+1. `name` is renamed from `nitro-test-fixture` to `@solcreek-test/conformance-fixture`
+   so it can live under the `@solcreek-test/` scope alongside other test fixtures
+   without colliding with the upstream npm name.
+2. `devDependencies` adds `"@solcreek/nitro": "workspace:*"` so the fixture
+   resolves `preset: "@solcreek/nitro/creekd"` and `/workers` from its own
+   `node_modules`.
+3. `devDependencies.nitro` switches from `"workspace:*"` (which only works inside
+   the nitrojs/nitro monorepo) to our pinned `"3.0.260522-beta"`.
+
+On re-sync, redo these three lines manually. The body of the fixture (config,
+routes, plugins, vendored `@fixture/*` deps) MUST stay byte-identical to
+upstream — that's what makes the harness contract meaningful.
+
+**Do not edit `harness.ts` or anything under `fixture/server/` in place** — keep
+them aligned with upstream so re-syncs stay trivial. If a test must be skipped
+or extended for our presets, wrap or call the harness from a sibling test file
+(e.g. `creekd.test.ts`, `workers.test.ts`) rather than patching `harness.ts`.

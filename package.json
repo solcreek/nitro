@@ -69,11 +69,16 @@
     "destr": "^2.0.5",
     "miniflare": "^4.0.0",
     "mlly": "^1.7.4",
+    "mono-jsx": "latest",
     "nitro": "3.0.260522-beta",
     "ofetch": "^1.4.1",
     "pathe": "^2.0.3",
+    "rolldown": "^1.0.0-beta",
+    "scule": "^1.3.0",
     "std-env": "^3.9.0",
     "typescript": "^5.8.2",
+    "unwasm": "^0.3.0",
+    "vite": "^7.0.0",
     "vitest": "^4.1.2"
   },
   "packageManager": "pnpm@10.33.0"

@@ -1,5 +1,6 @@
 {
-  "name": "nitro-test-fixture",
+  "name": "@solcreek-test/conformance-fixture",
+  "private": true,
   "version": "1.0.0",
   "type": "module",
   "scripts": {
@@ -8,7 +9,8 @@
     "dev": "nitro dev"
   },
   "devDependencies": {
+    "@solcreek/nitro": "workspace:*",
     "mono-jsx": "latest",
-    "nitro": "workspace:*"
+    "nitro": "3.0.260522-beta"
   }
 }

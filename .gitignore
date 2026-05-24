@@ -11,5 +11,12 @@ dist
 # must stay in git, so we use explicit patterns instead of a blanket rule.
 /node_modules
 test/smoke/**/node_modules
+
+# Fixture node_modules: keep the vendored @fixture/* packages (they are
+# upstream test data, not installed deps), ignore everything pnpm puts
+# in there.
+test/conformance/fixture/node_modules/*
+!test/conformance/fixture/node_modules/@fixture
+
 test/conformance/fixture/.output
 test/conformance/.tmp
