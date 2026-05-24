@@ -28,11 +28,11 @@ stable across the bump.
 | Framework        | Bundled engine        | Status with `@solcreek/nitro` |
 | ---------------- | --------------------- | ----------------------------- |
 | Nuxt 4           | `nitropack@^2.13`     | ✅ verified (Nuxt 4.4.6 E2E)   |
-| Bare Nitro v3    | `nitro@^3.0`          | ✅ verified (conformance)      |
-| SolidStart 1.x   | `nitropack@^2.x` (Vinxi) | 🟡 should work — untested      |
-| TanStack Start   | `nitropack@^2.x` (Vinxi) | 🟡 should work — untested      |
-| Analog           | `nitropack@^2.x`      | 🟡 should work — untested      |
-| **SolidStart 2**  | (no Nitro — uses srvx + h3) | ❌ out of scope    |
+| SolidStart 1.x   | `nitropack@^2.x` (via Vinxi) | ✅ verified (SolidStart 1.3.2 E2E) |
+| TanStack Start   | **`nitro@^3.0`** (via `nitro/vite`) | ✅ verified (TanStack Start 1.168.11 E2E — Nitro v3) |
+| Bare Nitro v3    | `nitro@^3.0`          | ✅ verified (conformance + 56 official scenarios) |
+| Analog           | `nitropack@^2.x`      | 🟡 blocked — Analog 2.5.2 vite-plugin-nitro still on `h3@1` which conflicts with Nitro v3's `h3@2` in mixed workspaces. Pure Analog projects untested. |
+| **SolidStart 2**  | (no Nitro — uses `srvx` + `h3` directly) | ❌ out of scope after they dropped Nitro |
 
 ## Two targets, one package
 

@@ -1,0 +1,47 @@
+{
+  "_server-fns-DP0tDXTj.js": {
+    "file": "assets/server-fns-DP0tDXTj.js",
+    "name": "server-fns",
+    "dynamicImports": [
+      "src/routes/api/health.ts?pick=GET",
+      "src/routes/api/health.ts?pick=GET",
+      "src/routes/api/health.ts?pick=GET",
+      "src/routes/api/health.ts?pick=GET",
+      "src/routes/index.tsx?pick=default&pick=$css",
+      "src/routes/index.tsx?pick=default&pick=$css",
+      "src/app.tsx"
+    ]
+  },
+  "src/app.tsx": {
+    "file": "assets/app-B1iTJ_BK.js",
+    "name": "app",
+    "src": "src/app.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "_server-fns-DP0tDXTj.js"
+    ]
+  },
+  "src/routes/api/health.ts?pick=GET": {
+    "file": "health.js",
+    "name": "health",
+    "src": "src/routes/api/health.ts?pick=GET",
+    "isEntry": true,
+    "isDynamicEntry": true
+  },
+  "src/routes/index.tsx?pick=default&pick=$css": {
+    "file": "index.js",
+    "name": "index",
+    "src": "src/routes/index.tsx?pick=default&pick=$css",
+    "isEntry": true,
+    "isDynamicEntry": true
+  },
+  "virtual:$vinxi/handler/server-fns": {
+    "file": "server-fns.js",
+    "name": "server-fns",
+    "src": "virtual:$vinxi/handler/server-fns",
+    "isEntry": true,
+    "imports": [
+      "_server-fns-DP0tDXTj.js"
+    ]
+  }
+}

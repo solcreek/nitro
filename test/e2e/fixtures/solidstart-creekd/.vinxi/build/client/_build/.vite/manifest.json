@@ -1,0 +1,28 @@
+{
+  "_web-Dijvat6J.js": {
+    "file": "assets/web-Dijvat6J.js",
+    "name": "web"
+  },
+  "src/routes/index.tsx?pick=default&pick=$css": {
+    "file": "assets/index-ByH0MyYp.js",
+    "name": "index",
+    "src": "src/routes/index.tsx?pick=default&pick=$css",
+    "isEntry": true,
+    "isDynamicEntry": true,
+    "imports": [
+      "_web-Dijvat6J.js"
+    ]
+  },
+  "virtual:$vinxi/handler/client": {
+    "file": "assets/client-EI4A6jiD.js",
+    "name": "client",
+    "src": "virtual:$vinxi/handler/client",
+    "isEntry": true,
+    "imports": [
+      "_web-Dijvat6J.js"
+    ],
+    "dynamicImports": [
+      "src/routes/index.tsx?pick=default&pick=$css"
+    ]
+  }
+}

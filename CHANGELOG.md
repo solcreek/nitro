@@ -1,5 +1,45 @@
 # Changelog
 
+## Unreleased
+
+### Verified
+
+Two more frameworks now have full end-to-end suites alongside Nuxt 4:
+
+- **SolidStart 1.3.2** (`@solidjs/start` → Vinxi → `nitropack@^2.13`)
+  via `test/e2e/fixtures/solidstart-creekd/`. Real `vinxi build` →
+  spawned `server/index.mjs` → SSR HTML + `/api/health` route both
+  succeed.
+- **TanStack Start 1.168.11** (`@tanstack/react-start` →
+  `nitro/vite` plugin → **`nitro@^3.0`**) via
+  `test/e2e/fixtures/tanstack-creekd/`. **First mainstream framework
+  on Nitro v3.** Proves our v3 preset path isn't future-only —
+  it runs against shipping framework code today.
+
+### Test infrastructure
+
+- `spawnNodeServer()` and `RUN_E2E=1` gating already in place from
+  0.3.0; new fixtures follow the same pattern (vendored app, real
+  CLI build, spawned process, HTTP assertions).
+- TanStack Start fixture pins `NODE_ENV=production` in the build
+  spawn because vitest sets `NODE_ENV=test` which makes the Vite
+  React plugin choose the dev JSX runtime — that bundle then throws
+  `jsxDEV is not a function` at runtime.
+
+### Known limitations
+
+- **Analog 2.5.2** is blocked in mixed workspaces:
+  `@analogjs/vite-plugin-nitro@2.5.2` imports
+  `createEvent` from `h3@1`, but Nitro v3 (also in our workspace)
+  uses `h3@2` where that export was renamed. Pure Analog projects
+  outside a v2/v3 mixed tree may still work; we don't verify either
+  way until the upstream version skew settles.
+- TanStack Start E2E asserts SSR HTML only — the server-route API
+  surface in `@tanstack/react-start` 1.168+ is in flux (no
+  `createServerFileRoute`, no documented Nitro `server/api/*`
+  passthrough yet), so route assertions are out of scope until it
+  stabilises.
+
 ## 0.3.0 — 2026-05-24
 
 ### Verified
