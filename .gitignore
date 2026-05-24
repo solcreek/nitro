@@ -1,0 +1,10 @@
+node_modules
+dist
+.output
+.nitro
+*.tsbuildinfo
+.DS_Store
+test/smoke/**/.output
+test/smoke/**/node_modules
+test/fixture-app/.output
+test/fixture-app/node_modules
