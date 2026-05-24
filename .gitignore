@@ -12,6 +12,8 @@ dist
 # must stay in git, so we use explicit patterns instead of a blanket rule.
 /node_modules
 test/smoke/**/node_modules
+test/e2e/fixtures/**/node_modules
+test/e2e/fixtures/**/.nuxt
 
 # Fixture node_modules: keep the vendored @fixture/* packages (they are
 # upstream test data, not installed deps), ignore everything pnpm puts

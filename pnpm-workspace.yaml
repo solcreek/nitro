@@ -2,3 +2,4 @@ packages:
   - "."
   - "test/smoke/*"
   - "test/conformance/fixture"
+  - "test/e2e/fixtures/*"
