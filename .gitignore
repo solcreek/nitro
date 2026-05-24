@@ -2,6 +2,7 @@ dist
 .output
 .nitro
 .tmp
+.wrangler
 *.tsbuildinfo
 .DS_Store
 
