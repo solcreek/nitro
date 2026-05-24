@@ -1,10 +1,14 @@
-node_modules
 dist
 .output
 .nitro
+.tmp
 *.tsbuildinfo
 .DS_Store
-test/smoke/**/.output
+
+# Ignore installed dependencies, but the vendored conformance fixture has
+# its own committed `@fixture/*` packages under fixture/node_modules — those
+# must stay in git, so we use explicit patterns instead of a blanket rule.
+/node_modules
 test/smoke/**/node_modules
-test/fixture-app/.output
-test/fixture-app/node_modules
+test/conformance/fixture/.output
+test/conformance/.tmp
