@@ -1,6 +1,6 @@
 {
   "name": "@solcreek/nitro",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "Nitro preset for Creek — deploys Nuxt, SolidStart, TanStack Start, Analog, and any Nitro app to Cloudflare Workers (creek) or self-hosted creekd.",
   "type": "module",
   "main": "./dist/index.js",
