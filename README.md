@@ -10,10 +10,29 @@ Because [Nuxt](https://nuxt.com), [SolidStart](https://start.solidjs.com), [TanS
 ## Install
 
 ```sh
+# Nitro v3 (bare Nitro apps, future Nuxt 5, etc.)
 npm install -D @solcreek/nitro nitro
+
+# nitropack v2 (current Nuxt 4, SolidStart 1.x via Vinxi, TanStack Start,
+# Analog, and anything else that hasn't migrated to v3 yet)
+npm install -D @solcreek/nitro nitropack
 ```
 
-`nitro` is a peer dependency (`>=3.0.260522-beta`).
+Either `nitro@>=3.0.260522-beta` **or** `nitropack@>=2.13.0` satisfies the peer
+dependency. Same preset code drives both — `nitropack` (v2) and `nitro` (v3)
+are the same project at different majors, and the preset surface we use is
+stable across the bump.
+
+### Framework support today
+
+| Framework        | Bundled engine        | Status with `@solcreek/nitro` |
+| ---------------- | --------------------- | ----------------------------- |
+| Nuxt 4           | `nitropack@^2.13`     | ✅ verified (Nuxt 4.4.6 E2E)   |
+| Bare Nitro v3    | `nitro@^3.0`          | ✅ verified (conformance)      |
+| SolidStart 1.x   | `nitropack@^2.x` (Vinxi) | 🟡 should work — untested      |
+| TanStack Start   | `nitropack@^2.x` (Vinxi) | 🟡 should work — untested      |
+| Analog           | `nitropack@^2.x`      | 🟡 should work — untested      |
+| **SolidStart 2**  | (no Nitro — uses srvx + h3) | ❌ out of scope    |
 
 ## Two targets, one package
 

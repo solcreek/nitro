@@ -1,5 +1,37 @@
 # Changelog
 
+## Unreleased
+
+### Verified
+
+- **Nuxt 4 (`nitropack@^2.13`) works** — confirmed via an end-to-end Nuxt 4.4.6
+  fixture (`test/e2e/fixtures/nuxt-creekd/`) that builds with our preset,
+  emits a schema-valid manifest, and serves Vue SSR HTML + API routes from
+  the spawned `server/index.mjs`. The preset is the same code as for Nitro v3
+  — no separate v2 path needed.
+
+### Changed
+
+- `peerDependencies` now lists **both** `nitropack@>=2.13.0` and
+  `nitro@>=3.0.260522-beta`, each marked optional via
+  `peerDependenciesMeta`. Either one satisfies the install.
+
+### Internal
+
+- `test/e2e/` infrastructure: full chain (real `nuxt build` → spawned node
+  process → HTTP assertions) gated behind `RUN_E2E=1` so the heavy Nuxt
+  toolchain stays out of the default `pnpm test`. Run with `pnpm test:e2e`.
+- Workspace-level pnpm override pins `estree-walker` to `2.0.2` to keep the
+  Nitro NFT trace deterministic in a workspace that also installs vitest
+  (which transitively pulls v3.0.3). Real users in isolated Nuxt projects
+  don't need this — the conflict is specific to our test layout.
+
+### Documentation
+
+- README adds a framework support matrix (Nuxt 4 ✅, bare Nitro v3 ✅,
+  Solid/TanStack/Analog 🟡 untested, SolidStart 2 ❌ out of scope after they
+  dropped Nitro for srvx + h3 directly).
+
 ## 0.2.0 — 2026-05-24
 
 ### Conformance
